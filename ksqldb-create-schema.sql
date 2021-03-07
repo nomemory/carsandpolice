@@ -12,7 +12,7 @@ CREATE STREAM policeStops AS
         c.location AS location
     FROM
         carLocations c
-    INNER JOIN policeLocations p WITHIN 5 SECONDS ON c.location = p.location
+    INNER JOIN policeLocations p WITHIN 10 SECONDS ON c.location = p.location
     EMIT CHANGES;
 
 CREATE STREAM carsBlocked AS

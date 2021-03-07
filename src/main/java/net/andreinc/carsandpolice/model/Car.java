@@ -19,9 +19,9 @@ public abstract class Car {
 
     private Direction direction;
 
-    public void move() {
-        this.x+=direction.getX();
-        this.y+=direction.getY();
+    public void move(int movement) {
+        this.x+=direction.getX() * movement;
+        this.y+=direction.getY() * movement;
     }
 
     public void changeDirection(Direction direction) {

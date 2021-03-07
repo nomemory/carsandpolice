@@ -33,10 +33,13 @@ public class VehiclesGenerator {
     private int step;
 
     @Value("${personal.cars}")
-    private Integer personalCarsNumber;
+    private int personalCarsNumber;
 
     @Value("${police.cars}")
-    private Integer policeCarsNumber;
+    private int policeCarsNumber;
+
+    @Value("${movement}")
+    private int movement;
 
     @Getter
     private List<String> colors = List.of("Red", "Green");
@@ -73,7 +76,7 @@ public class VehiclesGenerator {
             directions.remove(inverse(car.getDirection()));
             car.setDirection(from(directions).get());
         }
-        car.move();
+        car.move(movement);
     }
 
     public List<Direction> getPossibleDirectionsInIntersection(int x, int y) {
@@ -106,7 +109,7 @@ public class VehiclesGenerator {
     private void initRoadCoordinates() {
         this.roadsCoordinates = new ArrayList<>();
         for(int i = 0; i < gridSize; i+=step) {
-            for(int j = 0; j < gridSize; j++) {
+            for(int j = 0; j < gridSize; j+=movement) {
                 roadsCoordinates.add(Pair.of(i, j));
                 roadsCoordinates.add(Pair.of(j, i));
             }
