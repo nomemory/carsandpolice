@@ -24,7 +24,7 @@ import static net.andreinc.mockneat.unit.types.Ints.ints;
 import static net.andreinc.mockneat.unit.user.Names.names;
 
 @Component
-public class VehiclesGenerator {
+public class CarsGenerator {
 
     @Value("${gridSize}")
     private int gridSize;

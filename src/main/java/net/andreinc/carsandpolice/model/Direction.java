@@ -21,10 +21,8 @@ public enum Direction {
             case EAST: return WEST;
             case WEST: return EAST;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalStateException();
     }
-
-
     Direction(int x, int y) {
         this.x = x;
         this.y = y;

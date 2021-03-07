@@ -2,7 +2,7 @@ package net.andreinc.carsandpolice.controller;
 
 import io.confluent.ksql.api.client.Client;
 import net.andreinc.carsandpolice.job.CarMovementsProducerJob;
-import net.andreinc.carsandpolice.model.generators.VehiclesGenerator;
+import net.andreinc.carsandpolice.model.generators.CarsGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -41,7 +41,7 @@ public class CarsAndPoliceController {
     private MessageSendingOperations messageSendingOperations;
 
     @Autowired
-    private VehiclesGenerator vehiclesGenerator;
+    private CarsGenerator carsGenerator;
 
     @PostMapping("/emit/toggle")
     @ResponseStatus(HttpStatus.OK)

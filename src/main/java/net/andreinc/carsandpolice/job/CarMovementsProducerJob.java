@@ -1,6 +1,6 @@
 package net.andreinc.carsandpolice.job;
 
-import net.andreinc.carsandpolice.model.generators.VehiclesGenerator;
+import net.andreinc.carsandpolice.model.generators.CarsGenerator;
 import net.andreinc.carsandpolice.service.CarsAndPoliceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,7 +15,7 @@ public class CarMovementsProducerJob {
     private CarsAndPoliceService service;
 
     @Autowired
-    private VehiclesGenerator vehicleMocks;
+    private CarsGenerator vehicleMocks;
 
     private AtomicBoolean onoff = new AtomicBoolean(true);
 
