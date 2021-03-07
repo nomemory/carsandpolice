@@ -1,6 +1,6 @@
 # carsandpolice
 
-A streaming example using Kafka/KSQLDB and Spring Boot.
+A streaming example/POC using Kafka/KSQLDB and Spring Boot.
 
 Two types of cars are moving in a "grid": personal cars and the police.
 
