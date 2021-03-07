@@ -160,11 +160,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         stomp.subscribe('/topic/carsblocked', function(response) {
-            $("#events").append('<li>' + response.body + '</li>')
+            var json = JSON.parse(response.body)
+            $("#events").append('<li>' + json.CARPROFILEID + " was blocked by " + json.POLICEPROFILEID + '</li>')
         });
 
         stomp.subscribe('/topic/policestops', function(response) {
-            $("#events").append('<li>' + response.body + '</li>')
+            var json = JSON.parse(response.body)
+            $("#events").append('<li>' + json.CARPROFILEID + " was stopped by " + json.POLICEPROFILEID + '</li>')
         });
     });
 
