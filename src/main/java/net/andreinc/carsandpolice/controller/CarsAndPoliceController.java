@@ -6,6 +6,7 @@ import net.andreinc.carsandpolice.model.generators.VehiclesGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -44,8 +45,9 @@ public class CarsAndPoliceController {
 
     @PostMapping("/emit/toggle")
     @ResponseStatus(HttpStatus.OK)
-    public void toggle() {
+    public ResponseEntity<?> toggle() {
         job.toggle();
+        return ResponseEntity.ok(Map.of("produce", job.isOn()));
     }
 
     /**

@@ -12,14 +12,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class CarMovementsProducerJob {
 
     @Autowired
-    CarsAndPoliceService service;
+    private CarsAndPoliceService service;
 
     @Autowired
-    VehiclesGenerator vehicleMocks;
+    private VehiclesGenerator vehicleMocks;
 
     private AtomicBoolean onoff = new AtomicBoolean(true);
 
-
+    /**
+     * Turn on or off the producing of Car movements.
+     */
     public void toggle() {
         boolean temp;
         do {
@@ -37,7 +39,7 @@ public class CarMovementsProducerJob {
         if (isOn()) {
             vehicleMocks.getPersonalCars().forEach(c -> {
                 vehicleMocks.moveCarInGrid(c);
-                service.inserPersonalCar(c);
+                service.insertPersonalCar(c);
             });
         }
     }

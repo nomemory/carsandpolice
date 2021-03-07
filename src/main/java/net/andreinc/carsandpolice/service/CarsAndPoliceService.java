@@ -27,7 +27,7 @@ public class CarsAndPoliceService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public void inserPersonalCar(PersonalCar personalCar) {
+    public void insertPersonalCar(PersonalCar personalCar) {
         Map<String, Object> map = objectMapper.convertValue(personalCar, Map.class);
         KsqlObject insert = new KsqlObject(map);
         try {
