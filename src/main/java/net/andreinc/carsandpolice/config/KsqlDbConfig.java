@@ -2,7 +2,6 @@ package net.andreinc.carsandpolice.config;
 
 import io.confluent.ksql.api.client.Client;
 import io.confluent.ksql.api.client.ClientOptions;
-import net.andreinc.carsandpolice.query.utils.KsqlDbStreamingQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

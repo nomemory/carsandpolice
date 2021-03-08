@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.*;
 
+import static java.lang.String.format;
 import static java.util.Set.of;
 import static net.andreinc.carsandpolice.model.Direction.*;
 import static net.andreinc.mockneat.unit.objects.Filler.filler;
@@ -81,10 +82,10 @@ public class CarsGenerator {
 
     public List<Direction> getPossibleDirectionsInIntersection(int x, int y) {
         Set<Direction> possibleDirections = new HashSet<>(of(NORTH, SOUTH, EAST, WEST));
-        if (x==0) possibleDirections.remove(EAST);
+        if (x==0) possibleDirections.remove(WEST);
         if (y==0) possibleDirections.remove(NORTH);
-        if (x==gridSize) possibleDirections.remove(WEST);
-        if (y==gridSize) possibleDirections.remove(SOUTH);
+        if (x==gridSize-1) possibleDirections.remove(EAST);
+        if (y==gridSize-1) possibleDirections.remove(SOUTH);
         return new ArrayList<>(possibleDirections);
     }
 
